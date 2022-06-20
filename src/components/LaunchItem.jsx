@@ -1,0 +1,13 @@
+import { BiCalendarAlt } from "react-icons/bi";
+
+export function LaunchItem(launch){
+    return(
+          <div className="launchDiv" key={launch.flight_number}>
+            <h2>{launch.mission_name} ({launch.launch_year})</h2>
+           <a> <BiCalendarAlt />{launch.launch_date_local.split("T")[0]}</a>
+            <a className={launch.launch_success ? "succesL" : "failureL"}>{launch.launch_success? "Succes" : "Failure"}</a>
+            <p><a>Rocket: {launch.rocket.rocket_name} </a></p>
+            <button>More Details</button>
+          </div>
+    )
+}
