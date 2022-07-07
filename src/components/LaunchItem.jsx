@@ -1,4 +1,5 @@
 import { BiCalendarAlt } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 export function LaunchItem(launch){
     return(
@@ -7,7 +8,8 @@ export function LaunchItem(launch){
            <a> <BiCalendarAlt />{launch.launch_date_local.split("T")[0]}</a>
             <a className={launch.launch_success ? "succesL" : "failureL"}>{launch.launch_success? "Succes" : "Failure"}</a>
             <p><a>Rocket: {launch.rocket.rocket_name} </a></p>
-            <button>More Details</button>
+
+           <Link to={`/launch/${launch.flight_number}`}> <button>More Details</button></Link>
           </div>
     )
 }

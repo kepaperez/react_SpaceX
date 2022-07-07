@@ -1,25 +1,20 @@
-import {useState, useEffect} from "react";
 import logo from './img/spacex-logo-1.png'
-import * as API from "./service/launches"
-import {LaunchItem} from "./components/LaunchItem"
+import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 
-
+import { LaunchesList } from './components/LaunchesList';
+import { LaunchDetails } from './components/LaunchDetails';
+import { HomePage } from './components/HomePage';
 export function App() {
-  const[launches,setLaunches] = useState([]);
 
-  useEffect(() => {
-    API.getAllLaunches().then(setLaunches);
-  },[]);
 
   return (
     <>
     <img src={logo} width="300px"/>
-    <h1>Lauches Space X</h1>
-    <div className="launchContainer">
-    {launches.map(launch => (
-      <LaunchItem  key={launch.flight_number} {...launch}/>
-    ))}
-   </div>
+    <Routes>
+    <Route path="/" element={<HomePage />}/>
+      <Route path="/launches" element={<LaunchesList />}/>
+      <Route path="launch/:launchId" element={<LaunchDetails />}/>
+    </Routes>
     </>
   )
 }
