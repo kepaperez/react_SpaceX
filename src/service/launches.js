@@ -11,6 +11,28 @@ export async function getAllLaunches(){
     }
 }
 
+export async function getAllRockets(){
+    try{
+        const response = await fetch(`${API_URL}/rockets`);
+        const data = await response.json();
+        return data;
+
+    }catch(error){
+    console.error(error);
+    }
+}
+
+export async function getAllMissions(){
+    try{
+        const response = await fetch(`${API_URL}/missions`);
+        const data = await response.json();
+        return data;
+
+    }catch(error){
+    console.error(error);
+    }
+}
+
 
 export async function getLauncheByFlightNumber(flightNumber){
     try{
