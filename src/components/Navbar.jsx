@@ -1,120 +1,92 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import BurguerButton from './BurguerButton'
+import React, { useState } from "react";
+import styled from "styled-components";
+import BurguerButton from "./BurguerButton";
 import { Routes, Route, Link } from "react-router-dom";
+import logo from '../img/spacex-logo-white.png'
 
 export function Navbar() {
-
-  const [clicked, setClicked] = useState(false)
-  const handleClick = () => {
-    //cuando esta true lo pasa a false y vice versa
-    setClicked(!clicked)
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
   }
   return (
     <>
-      <NavContainer>
-        <h2>Navbar <span>Responsive</span></h2>
-        <div className={`links ${clicked ? 'active' : ''}`}>
-        <Link to="/"><a onClick={handleClick}>Home</a></Link>
-        <Link to="/rockets"><a onClick={handleClick}>Rockets</a></Link>
-        <Link to="/launches"><a onClick={handleClick}>Launches</a></Link>
-        <Link to="/missions"><a onClick={handleClick}>Missions</a></Link>
-         
-
+      <Nav>
+        <div class="topnav" id="myTopnav">
+          <Link to="/">
+            <a><img src={logo} alt="Logo" /></a>
+          
+          </Link>
+          <Link to="/rockets">
+            <a onClick={myFunction}>Rockets</a>
+          </Link>
+          <Link to="/launches">
+            <a onClick={myFunction}>Launches</a>
+          </Link>
+          <Link to="/missions">
+            <a onClick={myFunction}>Missions</a>
+          </Link>
+          <a href="javascript:void(0);" class="icon" onClick={myFunction}>
+           <a><i class="fa fa-bars"></i></a>
+          </a>
         </div>
-        <div className='burguer'>
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
-        </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
-      </NavContainer>
+      </Nav>
     </>
-  )
+  );
 }
 
+const Nav = styled.div`
+  position: fixed;
+  top: 0;
+  width:100%;
+  overflow: hidden;
+  background-color:#0E0E0E;
+  margin-bottom:4px;
 
-
-const NavContainer = styled.nav`
-  h2{
-    color: white;
-    font-weight: 400;
-    span{
-      font-weight: bold;
-    }
+  img{
+    width:10rem;
   }
-  padding: .4rem;
-  background-color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   a{
-    color: white;
-    text-decoration: none;
-    margin-right: 1rem;
-  }
-  .links{
-    position: absolute;
-    top: -700px;
-    left: -2000px;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    float: left;
+    display: block;
+    color: #f2f2f2;
     text-align: center;
-    transition: all .5s ease;
-    a{
-      color: white;
-      font-size: 2rem;
-      display: block;
-    }
-    @media(min-width: 768px){
-      position: initial;
-      margin: 0;
-      a{
-        font-size: 1rem;
-        color: white;
-        display: inline;
-      }
-      display: block;
-    }
-    .links.active{
-        width: 100%;
-        display: block;
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        top: 30%;
-        left: 0;
-        right: 0;
-        text-align: center;
-        a{
-          font-size: 2rem;
-          margin-top: 1rem;
-          color: white;
-        }
-      }
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
   }
- 
-  .burguer{
-    @media(min-width: 768px){
-      display: none;
-    }
+  a.active {
+    background-color: #04AA6D;
+    color: white;
+    
   }
-`
+.icon {
+    display: none;
 
-const BgDiv = styled.div`
-  background-color: #222;
-  position: absolute;
-  top: -1000px;
-  left: -1000px;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transition: all .6s ease ;
-  
-  &.active{
-    border-radius: 0 0 80% 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
-`
+  
+  @media screen and (max-width: 600px) {
+  a:not(:first-child) {display: none;}
+  a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+   .responsive {position: relative;}
+   .responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  .responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  `;

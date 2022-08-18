@@ -5,15 +5,15 @@ import { LaunchDetails } from './components/LaunchDetails';
 import { RocketsList } from './components/RocketsList';
 import { HomePage } from './components/HomePage';
 import { MissionsList } from './components/MissionsList';
-import { Nav } from './components/Nav';
 import { Navbar } from './components/Navbar';
+import styled from "styled-components";
 
 export function App() {
 
 
   return (
     <>
-    <Navbar/>
+  <Navbar/>
     <Routes>
     <Route path="/" element={<HomePage />}/>
       <Route path="/launches" element={<LaunchesList />}/>
