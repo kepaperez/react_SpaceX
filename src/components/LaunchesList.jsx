@@ -46,7 +46,7 @@ launchContainer{
 h1{
   padding:7rem;
   color:white;
-  font-weight: 100;
+  font-weight: 600;
 }
 .launchContainer {
   display: flex;

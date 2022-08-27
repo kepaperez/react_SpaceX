@@ -35,13 +35,17 @@ const LaunchItemStyle = styled.div`
 .launchDiv {
   display: flex;
   flex-direction: column;
-  background-color: #2D2D2D;
+  background-color: #161616;
   width: 300px;
   margin: 1rem;
   padding: 2rem;
   border-radius: 25px;
   color:white;
   text-align:start;
+  box-shadow: -2px -2px 16px 6px rgba(0,0,0,0.22);
+-webkit-box-shadow: -2px -2px 16px 6px rgba(0,0,0,0.22);
+-moz-box-shadow: -2px -2px 16px 6px rgba(0,0,0,0.22);
+
 }
 a,p{
   margin:0.5rem 0rem
@@ -61,15 +65,18 @@ a,p{
   padding: 2px 15px;
   border-radius: 15px;
   width: fit-content;
-  background-color: red;
+  background-color: #631010;
 }
 .succesL {
   margin: 0.3rem 0rem;
   padding: 2px 15px;
   border-radius: 15px;
   width: fit-content;
-  background-color: green;
+  background-color: #106318;
 }
 
 `;
+
+/* rocket constiner */
+
 
