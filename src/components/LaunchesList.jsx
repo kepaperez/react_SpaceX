@@ -36,11 +36,13 @@ background-color:#0E0E0E;
 text-align:center;
 min-height:100vh;
 
+
 launchContainer{
   
   display:flex;
   justify-content:center;
   align-items: center;
+
   
 }
 h1{
@@ -52,5 +54,13 @@ h1{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-}`
+  margin: 0rem 15rem;
+}
+
+@media (max-width: 600px) {
+  .launchContainer {
+    margin: 0;
+  }
+}
+`
 ;
